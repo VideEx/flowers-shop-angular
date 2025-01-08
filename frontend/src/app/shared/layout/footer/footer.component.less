@@ -1,0 +1,128 @@
+@import "../../../../assets/styles/_variables";
+
+.footer {
+  padding-top: 39px;
+  padding-bottom: 50px;
+
+  background-color: #648F64;
+
+  .container {
+    display: flex;
+
+    a.logo {
+      margin-right: 63px;
+    }
+  }
+
+  &-block {
+    margin-top: 11px;
+
+    &.footer {
+      &-menu {
+        margin-right: 57px;
+      }
+
+      &-category {
+        margin-right: 34px;
+      }
+
+      &-info {
+        margin-right: 63px;
+
+        .footer {
+          &-head {
+            margin-bottom: 15px;
+          }
+
+          &-social {
+            display: flex;
+            align-items: center;
+
+            margin-bottom: 55px;
+
+            a {
+              margin-right: 12px;
+            }
+          }
+
+          &-payment {
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            gap: 10px;
+            max-width: 230px;
+
+            .payment {
+              &-item {
+                height: 35px;
+                background-position: top;
+              }
+            }
+          }
+        }
+      }
+
+      &-contacts {
+        max-width: 253px;
+
+        .footer {
+          &-contact {
+            margin-bottom: 15px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &-head {
+              font-family: Montserrat-500, sans-serif;
+              font-size: 16px;
+              color: @black-text-color;
+              margin-bottom: 6px;
+            }
+
+            &-desc {
+              font-family: Montserrat-400, sans-serif;
+              font-size: 16px;
+              color: @black-text-color;
+              margin-bottom: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-head {
+    //styleName: menu;
+    font-family: Montserrat-500, sans-serif;
+    font-size: 16px;
+
+    color: @black-text-color;
+
+    margin-bottom: 25px;
+
+    text-transform: uppercase;
+  }
+
+  &-items {
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin-bottom: 11px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          font-size: 16px;
+          color: @black-text-color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+}

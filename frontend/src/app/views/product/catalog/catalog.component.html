@@ -1,0 +1,83 @@
+
+<section class="catalog">
+  <div class="container">
+    <div class="catalog-title">Каталог</div>
+    <div class="catalog-head">
+      <div class="catalog-applied-filters">
+        <div class="catalog-applied-filter" *ngFor="let appliedFilter of appliedFilters">
+          <span>{{appliedFilter.name}}</span>
+          <a (click)="removeAppliedFilter(appliedFilter)">
+            <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g clip-path="url(#clip66_340)">
+                <rect id="Х" width="14.000000" height="14.000000" transform="translate(1.000000 2.000000)" fill="#FFFFFF" fill-opacity="0"/>
+                <path id="Line 4" d="M1.22 2.64L13.95 15.37" stroke="#A8ABA7" stroke-opacity="1.000000" stroke-width="1.000000" stroke-linecap="round"/>
+                <path id="Line 5" d="M13.92 1.92L1.19 14.65" stroke="#A8ABA7" stroke-opacity="1.000000" stroke-width="1.000000" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="catalog-sorting" [class.open]="sortingOpen" (click)="toggleSorting()">
+        <div class="catalog-sorting-head">
+          <span>Сортировать</span>
+          <svg width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect id="asicon/outline/arrow-down" width="20.000000" height="20.000000" fill="#FFFFFF" fill-opacity="0"/>
+            <path id="Vector" d="M10 14C9.41 14 8.83 13.77 8.39 13.33L2.95 7.89C2.71 7.65 2.71 7.25 2.95 7.01C3.2 6.77 3.6 6.77 3.84 7.01L9.27 12.45C9.67 12.85 10.32 12.85 10.72 12.45L16.15 7.01C16.4 6.77 16.79 6.77 17.04 7.01C17.28 7.25 17.28 7.65 17.04 7.89L11.6 13.33C11.16 13.77 10.58 14 10 14Z" fill="#2C2C2C" fill-opacity="1.000000" fill-rule="nonzero"/>
+            <g opacity="0.000000"/>
+          </svg>
+        </div>
+        <div class="catalog-sorting-body">
+          <div class="catalog-sorting-item"
+               *ngFor="let sortingOption of sortingOptions"
+               (click)="sort(sortingOption.value)"
+               [class.active]="this.activeParams.sort ? this.activeParams.sort === sortingOption.value : false">
+            {{sortingOption.name}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="catalog-layout">
+      <div class="catalog-filters">
+        <category-filter *ngFor="let categoryWithTypes of categoriesWithTypes" [categoryWithTypes] = "categoryWithTypes"></category-filter>
+        <category-filter type="height"></category-filter>
+        <category-filter type="diameter"></category-filter>
+
+      </div>
+      <div class="catalog-products">
+        <product-card  [countInCart]="product.countInCart" *ngFor="let product of products" [product]="product"></product-card>
+      </div>
+      <div class="no-products" *ngIf="products.length === 0">
+        Товары не найдены, пожалуйста измените параметры поиска
+      </div>
+    </div>
+
+    <div class="pagination" *ngIf="pages.length > 1">
+      <div class="pagination-arrow" (click)="openPrevPage()"
+           [class.disabled]="activeParams.page ? activeParams.page === 1 : true">
+        <svg width="24.000000" height="23.591064" viewBox="0 0 24 23.5911" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect id="arrow" width="24.000000" height="23.590950" transform="translate(24.000000 23.591064) rotate(180.000000)" fill="#FFFFFF" fill-opacity="0"/>
+          <path id="Vector" d="M9.57 5.09C9.75 5.09 9.95 5.16 10.09 5.3C10.38 5.59 10.38 6.06 10.09 6.34L4.55 11.79L10.09 17.24C10.38 17.52 10.38 17.99 10.09 18.28C9.8 18.56 9.33 18.56 9.04 18.28L2.96 12.31C2.67 12.03 2.67 11.55 2.96 11.27L9.04 5.3C9.18 5.16 9.37 5.09 9.57 5.09Z" fill="#2C2C2C" fill-opacity="1.000000" fill-rule="nonzero"/>
+          <path id="Vector" d="M3.66 11.05L20.5 11.05C20.91 11.05 21.25 11.39 21.25 11.79C21.25 12.19 20.91 12.53 20.5 12.53L3.66 12.53C3.25 12.53 2.91 12.19 2.91 11.79C2.91 11.39 3.25 11.05 3.66 11.05Z" fill="#2C2C2C" fill-opacity="1.000000" fill-rule="nonzero"/>
+          <g opacity="0.000000"/>
+        </svg>
+      </div>
+      <div class="pagination-pages">
+        <a class="pagination-page" (click)="openPage(page)"
+           [class.active]="this.activeParams.page ? this.activeParams.page === page : (page === 1)"
+           *ngFor="let page of pages">{{page}}</a>
+      </div>
+      <div class="pagination-arrow" (click)="openNextPage()"
+           [class.disabled]="activeParams.page ? activeParams.page === pages.length : false">
+        <svg width="24.000000" height="23.591064" viewBox="0 0 24 23.5911" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect id="arrow" width="24.000000" height="23.590950" fill="#FFFFFF" fill-opacity="0"/>
+          <path id="Vector" d="M14.42 18.49C14.24 18.49 14.04 18.43 13.9 18.28C13.61 17.99 13.61 17.52 13.9 17.24L19.44 11.79L13.9 6.34C13.61 6.06 13.61 5.59 13.9 5.3C14.19 5.02 14.66 5.02 14.96 5.3L21.03 11.27C21.32 11.55 21.32 12.03 21.03 12.31L14.96 18.28C14.81 18.43 14.62 18.49 14.42 18.49Z" fill="#2C2C2C" fill-opacity="1.000000" fill-rule="nonzero"/>
+          <path id="Vector" d="M20.33 12.53L3.5 12.53C3.08 12.53 2.75 12.19 2.75 11.79C2.75 11.39 3.08 11.05 3.5 11.05L20.33 11.05C20.74 11.05 21.08 11.39 21.08 11.79C21.08 12.19 20.74 12.53 20.33 12.53Z" fill="#2C2C2C" fill-opacity="1.000000" fill-rule="nonzero"/>
+          <g opacity="0.000000"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

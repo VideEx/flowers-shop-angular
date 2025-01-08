@@ -1,0 +1,99 @@
+@import '../../../../assets/styles/_variables';
+@import '../../../../assets/styles/_mixins';
+@import '../../../../assets/styles/_data-form';
+
+.order {
+  padding-top: 86px;
+  padding-bottom: 107px;
+
+  .container {
+    .order-details {
+      .head-lora-32();
+    }
+
+    .order-info {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+
+
+      .order-details {
+        width: 422px;
+
+        .order-details-info {
+          border-radius: 5px;
+          background: #E7F1E8;
+          padding: 40px;
+          margin-bottom: 14px;
+
+          .order-details-info-title {
+            color: @green-text-color;
+            font-family: 'Lora', serif;
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 20px;
+          }
+
+          .order-details-info-item {
+            display: flex;
+            align-items: center;
+            color: @black-text-color;
+            margin-bottom: 10px;
+
+
+            .order-details-info-item-text {
+              font-size: 16px;
+              font-family: Montserrat-400, sans-serif;
+              margin-right: 12px;
+            }
+
+            .order-details-info-item-data {
+              font-size: 20px;
+              font-family: Montserrat-500, sans-serif;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+
+              .order-details-info-item-text,
+              .order-details-info-item-data {
+                font-family: Montserrat-600, sans-serif;
+              }
+            }
+          }
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.order-popup {
+  padding: 100px 70px 220px;
+  position: relative;
+  text-align: center;
+  color: @green-text-color;
+  background-image: url("../../../../assets/img/page/order-image.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  .order-popup-close {
+    position: absolute;
+    cursor: pointer;
+    top: 30px;
+    right: 30px;
+  }
+
+  .order-popup-title {
+    .head-lora-32();
+    margin-bottom: 40px;
+  }
+
+  .order-popup-content div {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+}

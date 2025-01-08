@@ -1,0 +1,174 @@
+
+<section class="detail" *ngIf="productDetail">
+  <div class="container">
+    <div class="detail-title">
+      {{productDetail.name}}
+    </div>
+    <div class="detail-product">
+      <div class="detail-image" style="background-image: url({{serverStaticPath + productDetail.image}})"></div>
+
+      <div class="detail-info">
+        <div class="detail-info-items">
+          <div class="detail-info-item" *ngIf="productDetail.lightning">
+            <div class="detail-info-icon">
+              <svg width="52.467773" height="55.000000" viewBox="0 0 52.4678 55" fill="none"
+                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <mask id="mask_1_1270" fill="white">
+                  <path id="Subtract"
+                        d="M13 28.1162L14.79 28.1162C15.0977 21.8037 20.042 16.7852 26.0967 16.7852C32.1523 16.7852 37.0967 21.8037 37.4043 28.1162L39.1943 28.1162C38.8828 20.8159 33.1377 14.9976 26.0967 14.9976C19.0566 14.9976 13.3115 20.8159 13 28.1162Z"
+                        clip-rule="evenodd" fill="" fill-opacity="1.000000" fill-rule="evenodd"/>
+                </mask>
+                <path id="Subtract"
+                      d="M13 28.1162L14.79 28.1162C15.0977 21.8037 20.042 16.7852 26.0967 16.7852C32.1523 16.7852 37.0967 21.8037 37.4043 28.1162L39.1943 28.1162C38.8828 20.8159 33.1377 14.9976 26.0967 14.9976C19.0566 14.9976 13.3115 20.8159 13 28.1162Z"
+                      clip-rule="evenodd" fill="#519157" fill-opacity="1.000000" fill-rule="evenodd"
+                      mask="url(#mask_1_1270)"/>
+                <path id="Subtract" d="" clip-rule="evenodd" fill="#519157" fill-opacity="1.000000"
+                      fill-rule="evenodd"/>
+                <path id="Line 11" d="M26.11 10L26.11 15.31" stroke="#519157" stroke-opacity="1.000000"
+                      stroke-width="2.383722" stroke-linecap="round"/>
+                <path id="Line 12" d="M26.11 39.36L26.11 44.35" stroke="#519157" stroke-opacity="1.000000"
+                      stroke-width="2.383722" stroke-linecap="round"/>
+                <path id="Line 13" d="M32.06 36.86L35.44 40.39" stroke="#519157" stroke-opacity="1.000000"
+                      stroke-width="2.383722" stroke-linecap="round"/>
+                <path id="Line 14" d="M16.57 40.39L19.94 36.86" stroke="#519157" stroke-opacity="1.000000"
+                      stroke-width="2.383722" stroke-linecap="round"/>
+                <mask id="mask_1_1277" fill="white">
+                  <path id="Subtract"
+                        d="M19.6191 28.1162C19.5771 28.4224 19.5557 28.7349 19.5557 29.0532C19.5557 32.6758 22.3574 35.6123 25.8125 35.6123C29.2686 35.6123 32.0703 32.6758 32.0703 29.0532C32.0703 28.7349 32.0488 28.4224 32.0068 28.1162L30.1963 28.1162C30.2529 28.4194 30.2822 28.7324 30.2822 29.0532C30.2822 31.6885 28.2812 33.8247 25.8125 33.8247C23.3447 33.8247 21.3438 31.6885 21.3438 29.0532C21.3438 28.7324 21.373 28.4194 21.4297 28.1162L19.6191 28.1162Z"
+                        clip-rule="evenodd" fill="" fill-opacity="1.000000" fill-rule="evenodd"/>
+                </mask>
+                <path id="Subtract"
+                      d="M19.6191 28.1162C19.5771 28.4224 19.5557 28.7349 19.5557 29.0532C19.5557 32.6758 22.3574 35.6123 25.8125 35.6123C29.2686 35.6123 32.0703 32.6758 32.0703 29.0532C32.0703 28.7349 32.0488 28.4224 32.0068 28.1162L30.1963 28.1162C30.2529 28.4194 30.2822 28.7324 30.2822 29.0532C30.2822 31.6885 28.2812 33.8247 25.8125 33.8247C23.3447 33.8247 21.3438 31.6885 21.3438 29.0532C21.3438 28.7324 21.373 28.4194 21.4297 28.1162L19.6191 28.1162Z"
+                      clip-rule="evenodd" fill="#519157" fill-opacity="1.000000" fill-rule="evenodd"
+                      mask="url(#mask_1_1277)"/>
+                <path id="Subtract" d="" clip-rule="evenodd" fill="#519157" fill-opacity="1.000000"
+                      fill-rule="evenodd"/>
+                <path id="Line 10" d="M13.84 28.42L38.36 28.42" stroke="#519157" stroke-opacity="1.000000"
+                      stroke-width="1.787791" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="detail-info-item-text">
+              <div class="detail-info-item-title">Освещение</div>
+              <div class="detail-info-item-description">{{productDetail.lightning}}</div>
+            </div>
+          </div>
+          <div class="detail-info-item" *ngIf="productDetail.humidity">
+            <div class="detail-info-icon">
+              <svg width="52.467773" height="55.000000" viewBox="0 0 52.4678 55" fill="none"
+                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <ellipse id="Ellipse 16" cx="26.233398" cy="27.500000" rx="26.233767" ry="27.500000" fill="#FFFFFF"
+                         fill-opacity="1.000000"/>
+                <path id="Ellipse 19"
+                      d="M32.28 36.48C36.46 36.48 39.85 32.5 39.85 27.59C39.85 22.69 36.52 16.8 32.28 14.58C28.65 16.49 24.71 22.69 24.71 27.59C24.71 32.5 28.1 36.48 32.28 36.48ZM32.29 16.71Q33.14 17.29 33.94 18.12Q35.14 19.37 36.08 20.99Q37.01 22.6 37.52 24.32Q38.03 26.04 38.03 27.59Q38.03 28.79 37.72 29.9Q37.64 30.17 37.54 30.44Q37.1 31.66 36.32 32.61Q36.28 32.66 36.25 32.7Q35.45 33.64 34.43 34.15Q34.42 34.15 34.42 34.15Q33.77 34.47 33.09 34.59Q32.69 34.66 32.28 34.66Q31.86 34.66 31.46 34.59Q30.78 34.47 30.14 34.15Q30.13 34.15 30.13 34.15Q29.11 33.64 28.31 32.7Q28.27 32.66 28.24 32.61Q27.46 31.66 27.01 30.44Q26.92 30.17 26.84 29.9Q26.53 28.79 26.53 27.59Q26.53 26.1 27.11 24.32Q27.67 22.59 28.69 20.89Q29.68 19.24 30.88 17.98Q31.6 17.22 32.29 16.71Z"
+                      fill="#519157" fill-opacity="1.000000" fill-rule="evenodd"/>
+                <mask id="mask_1_1289" fill="white">
+                  <path id="Subtract"
+                        d="M29.1963 19.8022C27.3818 16.8818 24.9707 14.4033 22.293 13C17.3525 15.5894 12 24.0205 12 30.6948C12 37.3687 16.6084 42.7788 22.293 42.7788C26.5947 42.7788 30.2803 39.6802 31.8184 35.2803L30.1035 34.7622Q29.8818 35.3838 29.5859 35.9678L29.5859 35.9678Q29.0215 37.083 28.1875 38.0615Q26.583 39.9463 24.5752 40.6064L24.5742 40.6064Q23.4922 40.9624 22.293 40.9624Q21.0928 40.9624 20.0107 40.6064Q18.0029 39.9463 16.3975 38.0615Q15.5635 37.083 14.999 35.9678Q13.8164 33.6309 13.8164 30.6948Q13.8164 26.3179 16.8516 21.249Q19.4072 16.9814 22.3018 15.0981Q25.5859 17.1538 28.0273 21.3853Q28.0811 21.4785 28.1338 21.5723L28.665 19.6416L29.1963 19.8022Z"
+                        clip-rule="evenodd" fill="" fill-opacity="1.000000" fill-rule="evenodd"/>
+                </mask>
+                <path id="Subtract"
+                      d="M29.1963 19.8022C27.3818 16.8818 24.9707 14.4033 22.293 13C17.3525 15.5894 12 24.0205 12 30.6948C12 37.3687 16.6084 42.7788 22.293 42.7788C26.5947 42.7788 30.2803 39.6802 31.8184 35.2803L30.1035 34.7622Q29.8818 35.3838 29.5859 35.9678L29.5859 35.9678Q29.0215 37.083 28.1875 38.0615Q26.583 39.9463 24.5752 40.6064L24.5742 40.6064Q23.4922 40.9624 22.293 40.9624Q21.0928 40.9624 20.0107 40.6064Q18.0029 39.9463 16.3975 38.0615Q15.5635 37.083 14.999 35.9678Q13.8164 33.6309 13.8164 30.6948Q13.8164 26.3179 16.8516 21.249Q19.4072 16.9814 22.3018 15.0981Q25.5859 17.1538 28.0273 21.3853Q28.0811 21.4785 28.1338 21.5723L28.665 19.6416L29.1963 19.8022Z"
+                      clip-rule="evenodd" fill="#1D1D1D" fill-opacity="1.000000" fill-rule="evenodd"
+                      mask="url(#mask_1_1289)"/>
+                <path id="Subtract"
+                      d="M15.3427 20.2342C15.3055 20.2958 15.2686 20.3576 15.2319 20.4195C13.3099 23.6613 12 27.393 12 30.6948C12 33.988 13.1221 36.9734 14.9418 39.153C14.9859 39.2058 15.0305 39.2582 15.0754 39.3101C16.9331 41.4553 19.4814 42.7788 22.293 42.7788C25.0394 42.7788 27.5346 41.5158 29.3802 39.4575C29.5115 39.311 29.6396 39.1605 29.7642 39.0062C30.2672 38.3831 30.7142 37.6972 31.0959 36.9595C31.359 36.4509 31.5911 35.9177 31.789 35.3635C31.7989 35.3358 31.8086 35.3081 31.8184 35.2803L30.1035 34.7622Q29.882 35.3834 29.5863 35.967L29.5859 35.9678L29.5818 35.976Q29.0768 36.9716 28.3568 37.8581Q28.2736 37.9605 28.1875 38.0615Q28.0817 38.1858 27.9742 38.3047Q26.452 39.9883 24.5785 40.6054L24.5752 40.6064L24.5742 40.6064Q23.4922 40.9624 22.293 40.9624Q21.0928 40.9624 20.0107 40.6064Q18.0259 39.9538 16.4342 38.1045Q16.4159 38.0832 16.3975 38.0615Q15.5665 37.0866 15.0032 35.976L14.999 35.9678Q13.8164 33.6309 13.8164 30.6948Q13.8164 26.3179 16.8516 21.249Q16.8587 21.2371 16.867 21.2234Q19.4143 16.9785 22.298 15.1006Q22.2999 15.0994 22.3018 15.0981Q22.3059 15.1008 22.3101 15.1034Q24.8095 16.6705 26.8205 19.4986Q27.2487 20.1007 27.6546 20.7599Q27.8434 21.0664 28.0273 21.3853Q28.0811 21.4785 28.1338 21.5723L28.183 21.3935L28.5022 20.2334L28.665 19.6416L29.1963 19.8022C29.1927 19.7964 29.1891 19.7906 29.1855 19.7848C28.6611 18.9424 28.087 18.137 27.4713 17.3836C25.9579 15.5321 24.1925 13.9955 22.293 13C19.8433 14.2839 17.2923 17.0041 15.3427 20.2342Z"
+                      clip-rule="evenodd" fill="#519157" fill-opacity="1.000000" fill-rule="evenodd"/>
+              </svg>
+            </div>
+            <div class="detail-info-item-text">
+              <div class="detail-info-item-title">Влажность</div>
+              <div class="detail-info-item-description">{{productDetail.humidity}}</div>
+            </div>
+          </div>
+          <div class="detail-info-item" *ngIf="productDetail.temperature">
+            <div class="detail-info-icon">
+              <svg width="52.467773" height="55.000000" viewBox="0 0 52.4678 55" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <ellipse id="Ellipse 15" cx="26.233398" cy="27.500000" rx="26.233767" ry="27.500000" fill="#FFFFFF" fill-opacity="1.000000"/>
+                <path id="Ellipse 16" d="M29.9 37.9C29.9 40.07 28.22 41.84 26.14 41.84C24.06 41.84 22.38 40.07 22.38 37.9C22.38 35.72 24.06 33.96 26.14 33.96C28.22 33.96 29.9 35.72 29.9 37.9Z" fill="#519157" fill-opacity="1.000000" fill-rule="nonzero"/>
+                <path id="Subtract" d="M31.1582 38.5586L31.1582 38.5586L21.1328 38.5586L21.1328 38.5586L31.1582 38.5586ZM31.1582 31.333L31.1582 14.0127C31.1582 11.2441 28.9141 9 26.1455 9C23.377 9 21.1328 11.2441 21.1328 14.0127L21.1328 31.333L23.0127 31.333L23.0127 14.0127C23.0127 12.2827 24.415 10.8799 26.1455 10.8799C27.876 10.8799 29.2793 12.2827 29.2793 14.0127L29.2793 31.333L31.1582 31.333Z" clip-rule="evenodd" fill="#519157" fill-opacity="1.000000" fill-rule="evenodd"/>
+                <path id="Subtract" d="M23.0127 29.3789C20.0693 30.7036 18 33.8384 18 37.4946C18 42.3486 21.6475 46.2837 26.1465 46.2837C30.6445 46.2837 34.292 42.3486 34.292 37.4946C34.292 33.8384 32.2227 30.7036 29.2793 29.3789L29.2793 31.5093C31.1523 32.7041 32.4121 34.937 32.4121 37.4946C32.4121 41.3105 29.6064 44.4038 26.1465 44.4038C22.6855 44.4038 19.8799 41.3105 19.8799 37.4946C19.8799 34.937 21.1396 32.7046 23.0127 31.5098L23.0127 29.3789Z" clip-rule="evenodd" fill="#519157" fill-opacity="1.000000" fill-rule="evenodd"/>
+              </svg>
+            </div>
+            <div class="detail-info-item-text">
+              <div class="detail-info-item-title">Температура</div>
+              <div class="detail-info-item-description">{{productDetail.temperature}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-info-param" *ngIf="productDetail.height">
+          <div class="detail-info-param-name">Высота: </div>
+          <div class="detail-info-param-data">{{productDetail.height}} см</div>
+        </div>
+        <div class="detail-info-param" *ngIf="productDetail.diameter">
+          <div class="detail-info-param-name">Диаметр (горшка): </div>
+          <div class="detail-info-param-data">{{productDetail.diameter}} см</div>
+        </div>
+        <div class="detail-info-params">
+          <div class="detail-info-params-count">
+            <span>Количество: </span>
+            <count-selector [count]="count" (onCountChange)="updateCount($event)"></count-selector>
+          </div>
+          <div class="detail-info-params-price">{{productDetail.price}} BYN</div>
+        </div>
+        <div class="detail-info-actions">
+
+          <button  class="button button-transparent button-icon" (click)="updateFavorite()" *ngIf="isLoggedIn">
+            <svg *ngIf="!productDetail.isInFavorite" width="16.000000" height="14.362793" viewBox="0 0 16 14.3628" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path id="Vector" d="M8 14.36C7.76 14.36 7.54 14.33 7.36 14.26C4.51 13.29 0 9.83 0 4.71C0 2.11 2.1 0 4.69 0C5.95 0 7.12 0.49 8 1.36C8.87 0.49 10.04 0 11.3 0C13.89 0 16 2.12 16 4.71C16 9.83 11.48 13.29 8.63 14.26C8.45 14.33 8.23 14.36 8 14.36ZM4.69 1.11C2.72 1.11 1.11 2.73 1.11 4.71C1.11 9.8 6 12.62 7.72 13.21C7.85 13.26 8.14 13.26 8.28 13.21C9.99 12.62 14.89 9.8 14.89 4.71C14.89 2.73 13.28 1.11 11.31 1.11C10.18 1.11 9.13 1.64 8.45 2.56C8.24 2.84 7.76 2.84 7.56 2.56C6.86 1.63 5.82 1.11 4.69 1.11Z" fill="#6CAC72" fill-opacity="1.000000" fill-rule="nonzero"/>
+            </svg>
+            <span *ngIf="!productDetail.isInFavorite">В избранное</span>
+            <svg *ngIf="productDetail.isInFavorite" width="19.708008" height="17.691895" viewBox="0 0 19.708 17.6919" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <path id="Vector" d="M9.06 17.57C9.29 17.65 9.57 17.69 9.85 17.69C10.13 17.69 10.41 17.65 10.64 17.57C14.14 16.37 19.7 12.11 19.7 5.81C19.7 2.61 17.11 0 13.92 0C12.37 0 10.92 0.6 9.85 1.68C8.78 0.6 7.33 0 5.78 0C2.59 0 0 2.6 0 5.81C0 12.1 5.56 16.37 9.06 17.57Z" fill="#B6D5B9" fill-opacity="1.000000" fill-rule="evenodd"/>
+            </svg>
+            <span *ngIf="productDetail.isInFavorite">В избранном</span>
+          </button>
+
+
+          <button class="button" *ngIf="!productDetail.countInCart" (click)="addToCart()">В корзину</button>
+          <button class="button button-transparent button-in-cart" *ngIf="productDetail.countInCart" (click)="removeFromCart()">
+            <span>В корзине</span>
+            <span>Удалить</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="recommended-products">
+
+      <div class="carousel-header">
+        <div class="carousel-title">Рекомендуемые товары</div>
+        <div class="carousel-arrows">
+          <a class="move-backward" (click)="owlCar.prev()">
+            <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect id="arrow-left" width="16.000000" height="16.000000" fill="#FFFFFF" fill-opacity="0"/>
+              <path id="Vector"
+                    d="M10.55 15C10.4 15 10.24 14.94 10.12 14.82L4.81 9.55C3.94 8.7 3.94 7.29 4.81 6.44L10.12 1.17C10.36 0.94 10.75 0.94 10.98 1.17C11.22 1.4 11.22 1.79 10.98 2.03L5.67 7.29C5.28 7.68 5.28 8.31 5.67 8.7L10.98 13.96C11.22 14.2 11.22 14.58 10.98 14.82C10.86 14.93 10.71 15 10.55 15Z"
+                    fill="#202B21" fill-opacity="1.000000" fill-rule="nonzero"/>
+              <g opacity="0.000000"/>
+            </svg>
+          </a>
+          <a class="move-forward" (click)="owlCar.next()">
+            <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect id="arrow-left" width="16.000000" height="16.000000"
+                    transform="translate(16.000000 16.000000) rotate(180.000000)" fill="#FFFFFF" fill-opacity="0"/>
+              <path id="Vector"
+                    d="M5.44 1C5.59 1 5.75 1.05 5.87 1.17L11.18 6.44C12.05 7.29 12.05 8.7 11.18 9.55L5.87 14.82C5.63 15.05 5.24 15.05 5.01 14.82C4.77 14.59 4.77 14.2 5.01 13.96L10.32 8.7C10.71 8.31 10.71 7.68 10.32 7.29L5.01 2.03C4.77 1.79 4.77 1.41 5.01 1.17C5.13 1.06 5.28 1 5.44 1Z"
+                    fill="#202B21" fill-opacity="1.000000" fill-rule="nonzero"/>
+              <g opacity="0.000000"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-items">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+          <ng-template carouselSlide *ngFor="let product of recommendedProducts">
+            <product-card [product]="product"></product-card>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+
+    </div>
+  </div>
+</section>

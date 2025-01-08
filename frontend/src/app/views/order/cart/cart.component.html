@@ -1,0 +1,85 @@
+<div class="cart" *ngIf="cart">
+  <div class="container">
+    <div class="cart-title">
+      Корзина
+    </div>
+    <div class="cart-empty" *ngIf="!cart || cart.items.length === 0">
+      <div>В корзине нет товаров</div>
+      <button class="button" routerLink="/catalog">В каталог</button>
+    </div>
+    <div class="cart-info" *ngIf="cart && cart.items.length > 0" >
+      <div class="cart-products">
+        <div class="cart-product" *ngFor="let cartProduct of cart.items">
+          <div class="cart-product-image"
+               style="background-image: url({{serverStaticPath + cartProduct.product.image}})"></div>
+          <div class="cart-product-name">{{cartProduct.product.name}}</div>
+          <count-selector [count]="cartProduct.quantity" (onCountChange)="updateCount(cartProduct.product.id, $event)"></count-selector>
+          <div class="cart-product-price">{{cartProduct.product.price}} BYN</div>
+          <div class="cart-product-remove" (click)="updateCount(cartProduct.product.id, 0)">
+            <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g clip-path="url(#clip1_1336)">
+                <rect id="Х" width="14.000000" height="14.000000" transform="translate(1.000000 2.000000)" fill="#FFFFFF" fill-opacity="0"/>
+                <path id="Line 4" d="M1.22 2.64L13.95 15.37" stroke="#A8ABA7" stroke-opacity="1.000000" stroke-width="1.000000" stroke-linecap="round"/>
+                <path id="Line 5" d="M13.92 1.92L1.19 14.65" stroke="#A8ABA7" stroke-opacity="1.000000" stroke-width="1.000000" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="cart-details">
+        <div class="cart-details-info">
+          <div class="cart-details-info-title">Ваш заказ</div>
+          <div class="cart-details-info-item first">
+            <div class="cart-details-info-item-text">Товаров:</div>
+            <div class="cart-details-info-item-data">{{totalCount}}</div>
+          </div>
+          <div class="cart-details-info-item">
+            <div class="cart-details-info-item-text">Общая стоимость:</div>
+            <div class="cart-details-info-item-data">{{totalAmount}} BYN</div>
+          </div>
+          <div class="cart-details-info-delivery">* без учета доставки</div>
+        </div>
+        <div class="cart-details-actions">
+          <button class="button button-transparent" routerLink="/catalog">Продолжить покупки</button>
+          <button class="button" routerLink="/order">Оформить заказ</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-products">
+      <div class="carousel-header">
+        <div class="carousel-title">С этими товарами также покупают</div>
+        <div class="carousel-arrows">
+          <a class="move-backward" (click)="owlCar.prev()">
+            <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect id="arrow-left" width="16.000000" height="16.000000" fill="#FFFFFF" fill-opacity="0"/>
+              <path id="Vector"
+                    d="M10.55 15C10.4 15 10.24 14.94 10.12 14.82L4.81 9.55C3.94 8.7 3.94 7.29 4.81 6.44L10.12 1.17C10.36 0.94 10.75 0.94 10.98 1.17C11.22 1.4 11.22 1.79 10.98 2.03L5.67 7.29C5.28 7.68 5.28 8.31 5.67 8.7L10.98 13.96C11.22 14.2 11.22 14.58 10.98 14.82C10.86 14.93 10.71 15 10.55 15Z"
+                    fill="#202B21" fill-opacity="1.000000" fill-rule="nonzero"/>
+              <g opacity="0.000000"/>
+            </svg>
+          </a>
+          <a class="move-forward" (click)="owlCar.next()">
+            <svg width="16.000000" height="16.000000" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+              <rect id="arrow-left" width="16.000000" height="16.000000"
+                    transform="translate(16.000000 16.000000) rotate(180.000000)" fill="#FFFFFF" fill-opacity="0"/>
+              <path id="Vector"
+                    d="M5.44 1C5.59 1 5.75 1.05 5.87 1.17L11.18 6.44C12.05 7.29 12.05 8.7 11.18 9.55L5.87 14.82C5.63 15.05 5.24 15.05 5.01 14.82C4.77 14.59 4.77 14.2 5.01 13.96L10.32 8.7C10.71 8.31 10.71 7.68 10.32 7.29L5.01 2.03C4.77 1.79 4.77 1.41 5.01 1.17C5.13 1.06 5.28 1 5.44 1Z"
+                    fill="#202B21" fill-opacity="1.000000" fill-rule="nonzero"/>
+              <g opacity="0.000000"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="carousel-items">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+          <ng-template carouselSlide *ngFor="let product of extraProducts">
+            <product-card [isLight]="true" [product]="product"></product-card>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</div>
