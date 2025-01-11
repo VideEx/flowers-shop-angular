@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, input, OnInit} from '@angular/core';
 import {ProductService} from "../../../shared/services/product.service";
 import {ProductType} from "../../../../types/product.type";
 import {CategoryService} from "../../../shared/services/category.service";
@@ -7,13 +7,15 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ActiveParamsUtil} from "../../../shared/utils/acive-params.util";
 import {ActiveParamsType} from "../../../../types/activeParams.type";
 import {AppliedFilterType} from "../../../../types/applied-filer.type";
-import {debounceTime} from "rxjs";
+import {debounceTime, from} from "rxjs";
 import {CartService} from "../../../shared/services/cart.service";
 import {CartType} from "../../../../types/cart.type";
 import {FavoriteService} from "../../../shared/services/favorite.service";
 import {FavoriteType} from "../../../../types/favorite.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 import {AuthService} from "../../../core/auth/auth.service";
+import * as events from "events";
+import {Target} from "@angular/compiler";
 
 @Component({
   selector: 'app-catalog',
@@ -35,13 +37,24 @@ export class CatalogComponent implements OnInit {
   ];
   pages: number[] = [];
   cart: CartType | null = null;
-  favoriteProducts: FavoriteType[] | null= null;
+  favoriteProducts: FavoriteType[] | null = null;
+
+  @HostListener('document:click', ['$event'])
+  click(event: Event) {
+    if (this.sortingOpen && (event.target as HTMLElement).className.indexOf('catalog-sorting') === -1) {
+      this.sortingOpen = false;
+    }
+  }
+
   constructor(private productService: ProductService, private favoriteService: FavoriteService,
               private categoryService: CategoryService, private authService: AuthService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private cartService: CartService) {
+
+
   };
+
   ngOnInit(): void {
     this.cartService.getCart()
       .subscribe((data: CartType | DefaultResponseType) => {
@@ -54,7 +67,7 @@ export class CatalogComponent implements OnInit {
           this.favoriteService.getFavorites()
             .subscribe({
               next: (data: FavoriteType[] | DefaultResponseType) => {
-                if ((data as DefaultResponseType).error !==undefined) {
+                if ((data as DefaultResponseType).error !== undefined) {
                   const error = (data as DefaultResponseType).message;
                   this.processCatalog();
                   throw new Error(error);
@@ -131,8 +144,8 @@ export class CatalogComponent implements OnInit {
                 if (this.cart && this.cart.items.length > 0) {
                   this.products = data.items.map(product => {
                     if (this.cart) {
-                      const productInCart = this.cart.items.find( item => item.product.id === product.id);
-                      if(productInCart) {
+                      const productInCart = this.cart.items.find(item => item.product.id === product.id);
+                      if (productInCart) {
                         product.countInCart = productInCart.quantity;
                       }
                     }
@@ -144,7 +157,7 @@ export class CatalogComponent implements OnInit {
 
                 if (this.favoriteService) {
                   this.products = this.products.map(product => {
-                    const productInFavorite = this.favoriteProducts?.find( item => item.id === product.id);
+                    const productInFavorite = this.favoriteProducts?.find(item => item.id === product.id);
                     if (productInFavorite) {
                       product.isInFavorite = true;
                     }
@@ -168,21 +181,26 @@ export class CatalogComponent implements OnInit {
       queryParams: this.activeParams
     });
   };
+
   toggleSorting(): void {
     this.sortingOpen = !this.sortingOpen;
   };
+
   sort(value: string) {
     this.activeParams.sort = value;
+
     this.router.navigate(['/catalog'], {
       queryParams: this.activeParams
     });
   };
+
   openPage(page: number) {
     this.activeParams.page = page;
     this.router.navigate(['/catalog'], {
       queryParams: this.activeParams
     });
   };
+
   openPrevPage() {
     if (this.activeParams.page && this.activeParams.page > 1) {
       this.activeParams.page--;
@@ -191,12 +209,18 @@ export class CatalogComponent implements OnInit {
       });
     }
   };
+
   openNextPage() {
+    if (!this.activeParams.page) {
+      this.activeParams.page = 1
+    }
+
     if (this.activeParams.page && this.activeParams.page < this.pages.length) {
       this.activeParams.page++;
       this.router.navigate(['/catalog'], {
         queryParams: this.activeParams
       });
     }
+    console.log(this.activeParams)
   };
 }
